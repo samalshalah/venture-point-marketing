@@ -1,7 +1,6 @@
-import { ServiceApplicationForm } from "@/components/ServiceApplicationForm";
+import Link from "next/link";
 import {
   ArrowRight,
-  BadgeCheck,
   BarChart3,
   Brush,
   CheckCircle2,
@@ -69,20 +68,30 @@ const process = [
   "Watch it grow",
 ];
 
-const templates = [
-  "Restaurant launch pages",
-  "Contractor lead sites",
-  "Salon booking pages",
-  "Dental review funnels",
-  "Retail promo pages",
-  "Real estate local pages",
-];
-
 export default function Home() {
   return (
     <main>
       <section className="hero" id="top">
-        <div className="shell hero-grid">
+        <div className="shell hero-shell">
+          <a className="corner-logo" href="#top" aria-label="Venture Point home">
+            <svg viewBox="0 0 180 116" aria-hidden="true">
+              <defs>
+                <linearGradient id="cornerLogoStroke" x1="0" x2="1" y1="0" y2="1">
+                  <stop offset="0%" stopColor="#ffffff" />
+                  <stop offset="52%" stopColor="#d7d0c2" />
+                  <stop offset="100%" stopColor="#7e7e79" />
+                </linearGradient>
+              </defs>
+              <text className="corner-logo-v" x="38" y="58">
+                V
+              </text>
+              <line className="corner-logo-slash" x1="91" y1="18" x2="74" y2="76" />
+              <text className="corner-logo-p" x="108" y="78">
+                P
+              </text>
+            </svg>
+            <span>Venture Point</span>
+          </a>
           <div className="hero-copy">
             <p className="eyebrow">Venture Point</p>
             <div className="rule" />
@@ -94,57 +103,16 @@ export default function Home() {
               customers.
             </p>
             <div className="hero-actions">
-              <a className="button primary" href="#contact">
+              <Link className="button primary" href="/apply">
                 Start Free Audit
                 <ArrowRight size={18} aria-hidden="true" />
-              </a>
+              </Link>
               <a className="button secondary" href="#services">
                 View Services
                 <ArrowRight size={18} aria-hidden="true" />
               </a>
             </div>
           </div>
-
-          <aside className="brand-panel" aria-label="Venture Point brand">
-            <div className="logo-stage" aria-hidden="true">
-              <div className="logo-orbit logo-orbit-one" />
-              <div className="logo-orbit logo-orbit-two" />
-              <svg
-                className="animated-logo"
-                viewBox="0 0 320 220"
-                role="img"
-                aria-label="Venture Point logo"
-              >
-                <defs>
-                  <linearGradient id="logoStroke" x1="0" x2="1" y1="0" y2="1">
-                    <stop offset="0%" stopColor="#ffffff" />
-                    <stop offset="50%" stopColor="#cfc7b8" />
-                    <stop offset="100%" stopColor="#7d7d78" />
-                  </linearGradient>
-                </defs>
-                <text className="logo-letter logo-v" x="64" y="118">
-                  V
-                </text>
-                <line
-                  className="logo-slash"
-                  x1="154"
-                  y1="42"
-                  x2="126"
-                  y2="146"
-                />
-                <text className="logo-letter logo-p" x="184" y="148">
-                  P
-                </text>
-                <path
-                  className="logo-sweep"
-                  d="M45 172 C92 205 222 205 274 154"
-                  pathLength="1"
-                />
-              </svg>
-            </div>
-            <p className="brand-name">Venture Point</p>
-            <p className="brand-subtitle">Marketing Agency</p>
-          </aside>
         </div>
       </section>
 
@@ -219,28 +187,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section template-section">
-        <div className="shell template-grid">
-          <div>
-            <p className="eyebrow">White Label Ready</p>
-            <h2>Fast website packages you can customize for local businesses.</h2>
-            <p>
-              Build repeatable website layouts for common local industries, then
-              swap in each client&apos;s logo, photos, services, colors, and
-              contact details before launch.
-            </p>
-          </div>
-          <div className="template-list" aria-label="White label website types">
-            {templates.map((template) => (
-              <span key={template}>
-                <BadgeCheck size={17} aria-hidden="true" />
-                {template}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section className="section proof-section">
         <div className="shell">
           <div className="contact-card contact-card-wide" id="contact">
@@ -250,7 +196,10 @@ export default function Home() {
               Start with a free local presence audit and a clear plan for your
               website, Google profile, content, and review funnel.
             </p>
-            <ServiceApplicationForm />
+            <Link className="button primary contact-cta" href="/apply">
+              Fill Out Application
+              <ArrowRight size={18} aria-hidden="true" />
+            </Link>
             <div className="contact-links">
               <a href="tel:+15712774644">
                 <Phone size={18} aria-hidden="true" />
